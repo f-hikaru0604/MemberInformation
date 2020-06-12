@@ -79,14 +79,14 @@ public class RegistrationServlet extends HttpServlet {
 
 				request.setAttribute("msg", "登録に失敗しました");
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("/views/registration.jsp");
-			rd.forward(request, response);
+
 
 		} catch (NumberFormatException e) {
 			request.setAttribute("msg", "登録に失敗しました");
-			RequestDispatcher rd = request.getRequestDispatcher("/views/registration.jsp");
-			rd.forward(request, response);
+
 		}
+		RequestDispatcher rd = request.getRequestDispatcher("/views/registration.jsp");
+		rd.forward(request, response);
 
 	}
 }
