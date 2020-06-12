@@ -3,6 +3,7 @@ package jp.co.aforce.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBUtil {
@@ -72,7 +73,7 @@ public class DBUtil {
 	 * コネクションをクローズする。
 	 * @throws Exception
 	 */
-	/*public static void closeConnection() {
+	public static void closeConnection() {
 		// クローズする順番を間違えない様にする事！
 		try {
 			if (rs != null) { // リザルトセットのクローズ
@@ -98,5 +99,5 @@ public class DBUtil {
 			// ログファイルに出力するのが一般的
 			e.printStackTrace();
 		}
-	}*/
+	}
 }

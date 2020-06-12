@@ -10,7 +10,7 @@
 <body class="c1">
 メニュー画面<br>
 
-<form action="registration.jsp" method="POST">
+<form action="registration.jsp">
 <p><input class="button" type="submit" value="会員情報新規登録"></p></form>
 <form action="edit.jsp" method="POST">
 <p><input class="button" type="submit" value="会員情報変更"></p></form>

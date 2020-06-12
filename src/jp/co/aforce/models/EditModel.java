@@ -2,23 +2,22 @@ package jp.co.aforce.models;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import jp.co.aforce.beans.MemberBean;
 import jp.co.aforce.util.DBUtil;
 
-public class RegistrationModel {
+public class EditModel {
 
-	public int insert(MemberBean memberBean) {
+	public int update(MemberBean memberBean) {
 		int processingNumber = 0;
-		String sql = "INSERT INTO members VALUES(?,?,?,?,?,?)";
+		String sql = "UPDATE members SET name = ?, age = ?, birth_year = ?, birth_month = ?, birth_day = ? WHERE member_no = ?";
 
 		try (Connection conn = DBUtil.makeConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
 			DBUtil.makeStatement();
 
+            String member_no = memberBean.getMember_no();
 			String name = memberBean.getName();
 			int age = memberBean.getAge();
 			int birth_year = memberBean.getBirth_year();
@@ -27,16 +26,12 @@ public class RegistrationModel {
 
 			// SQLを実行
 
-			Date date = new Date();
-			SimpleDateFormat df = new SimpleDateFormat("yyMMddHHmmss");
-			String member_no = df.format(date);
-
-			pstmt.setString(1, "A"+ member_no);
-			pstmt.setString(2, name);
-			pstmt.setInt(3, age);
-			pstmt.setInt(4, birth_year);
-			pstmt.setInt(5, birth_month);
-			pstmt.setInt(6, birth_day);
+			pstmt.setString(1, name);
+			pstmt.setInt(2, age);
+			pstmt.setInt(3, birth_year);
+			pstmt.setInt(4, birth_month);
+			pstmt.setInt(5, birth_day);
+			pstmt.setString(6, member_no);
 
 			processingNumber = pstmt.executeUpdate();
 
@@ -49,3 +44,6 @@ public class RegistrationModel {
 
 	}
 }
+
+
+

@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <script type="text/javascript">
 <!--
-
 function check() {
 var flag = 0;
 if (document.form1.name.value == "") {
@@ -68,7 +67,7 @@ for (int i =1; i<=31;i++) {
 </select></div><br>
 
 <div class=c2>
-<button type="button" onclick="history.back(-5)" class="c6">戻る</button>
+<button type="button" onClick="location.href='http://localhost:8070/MemberInformation/views/menu.jsp';" class="c6">戻る</button>
 <input type="submit" value="登録" class="c7"></form>
 </div>
 </body>
